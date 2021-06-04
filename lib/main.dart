@@ -74,10 +74,19 @@ class _QuizPageState extends State<QuizPage> {
               ),
               onPressed: () {
                 setState(() {
+                  bool correctAnswer = answers[questionNumber];
+                  if (correctAnswer == true) {
+                    print('right');
+                    scoreKeeper.add(
+                      Icon(Icons.check, color: Colors.green),
+                    );
+                  } else {
+                    print('wrong');
+                    scoreKeeper.add(
+                      Icon(Icons.close, color: Colors.red),
+                    );
+                  }
                   questionNumber++;
-                  scoreKeeper.add(
-                    Icon(Icons.check, color: Colors.green),
-                  );
                 });
               },
             ),
@@ -89,6 +98,16 @@ class _QuizPageState extends State<QuizPage> {
             child: TextButton(
               onPressed: () {
                 setState(() {
+                  bool correctAnswer = answers[questionNumber];
+                  if (correctAnswer == false) {
+                    scoreKeeper.add(
+                      Icon(Icons.check, color: Colors.green),
+                    );
+                  } else {
+                    scoreKeeper.add(
+                      Icon(Icons.close, color: Colors.red),
+                    );
+                  }
                   questionNumber++;
                 });
               },
