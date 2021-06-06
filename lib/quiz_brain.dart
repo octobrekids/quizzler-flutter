@@ -1,6 +1,8 @@
 import 'question.dart';
 
 class QuizBrain {
+  int _questionNumber = 0;
+
   // private in dart by adding _ (underscore) in front of the variable
   List<Question> _questionBank = [
     Question('Some cats are actually allergic to humans', true),
@@ -30,11 +32,17 @@ class QuizBrain {
         true),
   ];
 
-  String getQuestionText(int questionNumber) {
-    return _questionBank[questionNumber].questionText;
+  void nextQuestion() {
+    if (_questionNumber < _questionBank.length) {
+      _questionNumber++;
+    }
   }
 
-  bool getQuestionAnswer(int questionNumber) {
-    return _questionBank[questionNumber].questionAnswer;
+  String getQuestionText() {
+    return _questionBank[_questionNumber].questionText;
+  }
+
+  bool getQuestionAnswer() {
+    return _questionBank[_questionNumber].questionAnswer;
   }
 }
