@@ -70,7 +70,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   bool correctAnswer =
-                      quizBrain.questionBank[questionNumber].questionAnswer;
+                      quizBrain.getQuestionAnswer(questionNumber);
                   if (correctAnswer == true) {
                     print('right');
                     scoreKeeper.add(
@@ -95,7 +95,7 @@ class _QuizPageState extends State<QuizPage> {
               onPressed: () {
                 setState(() {
                   bool correctAnswer =
-                      quizBrain.questionBank[questionNumber].questionAnswer;
+                      quizBrain.getQuestionAnswer(questionNumber);
                   if (correctAnswer == false) {
                     scoreKeeper.add(
                       Icon(Icons.check, color: Colors.green),
