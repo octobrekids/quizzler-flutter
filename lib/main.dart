@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'quiz_brain.dart';
+import 'package:rflutter_alert/rflutter_alert.dart';
 
 QuizBrain quizBrain = QuizBrain();
 
@@ -48,6 +49,12 @@ class _QuizPageState extends State<QuizPage> {
         );
       }
       quizBrain.nextQuestion();
+    } else {
+      Alert(
+        context: context,
+        title: "RFLUTTER ALERT",
+        desc: "Flutter is more awesome with RFlutter Alert.",
+      ).show();
     }
   }
 
